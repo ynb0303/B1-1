@@ -21,7 +21,23 @@ HTML, CSS, JavaScript만으로 만든 반응형 학습 포트폴리오입니다.
 - js/main.js: 상태, 이벤트, 렌더링, API, 폼 검증
 - images/profile.svg: 직접 작성한 임시 이니셜 프로필
 - MISSION-CHECKLIST.md: 요구사항별 확인 목록
-- EXPLANATION-GUIDE.md: 코드 학습과 발표 가이드
+- [EXPLANATION-GUIDE.md](EXPLANATION-GUIDE.md): 코드 학습과 발표 가이드
+- [EXPLANATION-GUIDE2.md](EXPLANATION-GUIDE2.md): 체크리스트 8번의 학습 목표 6개 집중 설명
+
+## 직접 설명할 학습 목표
+
+[EXPLANATION-GUIDE2.md](EXPLANATION-GUIDE2.md)에 아래 6개 항목을 **쉬운 설명 → 실제 코드 해설 → 답변 예시 → 확인 질문** 순서로 정리했습니다.
+
+| 학습 목표 | 프로젝트에서 확인할 부분 |
+| --- | --- |
+| 시맨틱 태그 사용 이유와 구조 설계 | index.html의 영역 구분, renderProjects의 article |
+| Flexbox와 Grid 차이 및 선택 이유 | css/style.css의 .navigation, .projects-grid |
+| DOM 선택과 이벤트 연결 | querySelector, 메뉴 버튼의 addEventListener |
+| 화살표 함수·구조분해·map/filter | renderProjects의 데이터 추출, 카드 변환, 언어 필터 |
+| fetch·async/await와 상태별 UI | loadProjects, renderProjects |
+| 이벤트 → 상태 변경 → DOM 업데이트 | 메뉴·다크 모드·폼의 이벤트와 렌더링 함수 |
+
+문서의 답변을 읽은 뒤 실제 코드에서 해당 부분을 찾아 자신의 말로 설명해 보세요. 설명용으로 줄인 예시는 문서에 표시했습니다. 학습 목표의 체크 표시는 직접 설명할 수 있게 된 후 본인이 완료하면 됩니다.
 
 ## 주요 기능
 - Hero, About, Skills, Projects, Contact, Footer
