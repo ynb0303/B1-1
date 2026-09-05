@@ -1,11 +1,15 @@
 # B1-1 | ynb0303의 포트폴리오
 
+## 🌐 [포트폴리오 웹페이지 바로 열기](https://ynb0303.github.io/B1-1/)
+
+위 링크를 클릭하면 배포된 웹페이지가 열립니다. 별도 설치 없이 브라우저에서 이용할 수 있습니다.
+
 HTML, CSS, JavaScript만으로 만든 반응형 학습 포트폴리오입니다. 사용자의 행동이 상태를 바꾸고, 바뀐 상태가 화면에 반영되는 흐름을 연습합니다.
 
 ## 진행 상황
 - HTML/CSS와 JavaScript 기능 구현 완료, 로컬 및 배포 사이트 Chrome 브라우저 검증 통과
-- 배포 URL: https://ynb0303.github.io/B1-1/
-- 저장소 URL: https://github.com/ynb0303/B1-1
+- 배포 URL: [포트폴리오 사이트](https://ynb0303.github.io/B1-1/)
+- 저장소 URL: [GitHub B1-1](https://github.com/ynb0303/B1-1)
 - 사용 기술: HTML5, CSS3, 순수 JavaScript, GitHub REST API
 - 외부 런타임 라이브러리 및 프레임워크 없음
 
