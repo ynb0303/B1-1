@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ynb0303의 웹 개발 학습 포트폴리오입니다.">
+  <title>ynb0303 | 개발 포트폴리오</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <nav class="navigation" aria-label="주요 메뉴">
+      <a class="logo" href="#hero">ynb0303<span>.</span></a>
+      <button id="menu-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" aria-label="메뉴 열기">☰</button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="#hero">홈</a></li>
+        <li><a href="#about">소개</a></li>
+        <li><a href="#skills">기술</a></li>
+        <li><a href="#projects">프로젝트</a></li>
+        <li><a href="#contact">연락</a></li>
+      </ul>
+      <button id="theme-toggle" type="button" aria-pressed="false">다크 모드</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow">배우고, 만들고, 기록합니다</p>
+      <h1 id="hero-title">안녕하세요.<br>웹 개발을 배우는 <span>ynb0303</span>입니다.</h1>
+      <p>작은 기능부터 직접 만들며 웹의 동작 원리를 익히고 있습니다.</p>
+      <div class="hero-actions">
+        <a class="button" href="#projects">프로젝트 보기</a>
+        <a class="button button-secondary" href="#contact">연락하기</a>
+      </div>
+    </section>
+
+    <section id="about" class="reveal" aria-labelledby="about-title">
+      <p class="eyebrow">ABOUT</p>
+      <h2 id="about-title">저를 소개합니다</h2>
+      <div class="about-layout">
+        <!-- 개인 사진이 준비되면 src와 alt를 함께 변경하세요. -->
+        <img src="images/profile.svg" alt="ynb0303의 이니셜 YN이 표시된 프로필 이미지" width="240" height="240">
+        <div>
+          <h3>한 걸음씩, 직접 만들어 보는 공부</h3>
+          <p>HTML, CSS, JavaScript를 바탕으로 첫 포트폴리오를 만들고 있습니다.</p>
+          <p>버튼을 눌렀을 때 화면이 바뀌는 과정부터 외부 데이터를 가져오는 과정까지 이해하는 것이 목표입니다.</p>
+          <!-- 관심 분야, 학습 계기 등 본인의 이야기로 수정하세요. -->
+          <a href="https://github.com/ynb0303">GitHub에서 학습 기록 보기</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="reveal" aria-labelledby="skills-title">
+      <p class="eyebrow">SKILLS</p>
+      <h2 id="skills-title">지금 배우는 기술</h2>
+      <ul class="skills-list">
+        <li><h3>HTML</h3><p>내용에 맞는 태그로 페이지 구조 만들기</p></li>
+        <li><h3>CSS</h3><p>레이아웃, 반응형 화면과 다크 모드 만들기</p></li>
+        <li><h3>JavaScript</h3><p>이벤트를 처리하고 화면의 내용을 바꾸기</p></li>
+        <li><h3>Git &amp; GitHub</h3><p>코드의 변경 기록을 관리하고 웹사이트 배포하기</p></li>
+      </ul>
+    </section>
+
+    <section id="projects" class="reveal" aria-labelledby="projects-title">
+      <p class="eyebrow">PROJECTS</p>
+      <h2 id="projects-title">만들어 가는 프로젝트</h2>
+      <p>GitHub 공개 저장소를 이곳에 모읍니다.</p>
+      <div id="projects-status" role="status" aria-live="polite">프로젝트 연동을 준비하고 있습니다.</div>
+      <button id="retry-projects" type="button" hidden>다시 시도</button>
+      <div id="project-filters" class="project-filters" role="group" aria-label="프로젝트 언어 필터"></div>
+      <div id="projects-grid" class="projects-grid"></div>
+      <!-- API 연결 단계에서 저장소마다 독립적인 article 카드를 생성합니다. -->
+      <noscript>프로젝트 목록을 보려면 JavaScript를 켜 주세요. <a href="https://github.com/ynb0303?tab=repositories">GitHub에서 직접 보기</a></noscript>
+    </section>
+
+    <section id="contact" class="reveal" aria-labelledby="contact-title">
+      <p class="eyebrow">CONTACT</p>
+      <h2 id="contact-title">이야기를 나눠요</h2>
+      <p id="form-description">입력값 검증을 연습하는 폼입니다. 실제 이메일은 전송되지 않습니다.</p>
+      <form id="contact-form" aria-describedby="form-description">
+        <div class="form-field">
+          <label for="name">이름 (필수)</label>
+          <input id="name" name="name" type="text" autocomplete="name" required aria-describedby="name-error">
+          <p id="name-error" class="field-error"></p>
+        </div>
+        <div class="form-field">
+          <label for="email">이메일 (필수)</label>
+          <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-error">
+          <p id="email-error" class="field-error"></p>
+        </div>
+        <div class="form-field">
+          <label for="message">메시지 (필수)</label>
+          <textarea id="message" name="message" rows="6" required aria-describedby="message-error"></textarea>
+          <p id="message-error" class="field-error"></p>
+        </div>
+        <button class="button" type="submit">입력 내용 확인하기</button>
+        <p id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 ynb0303. All rights reserved.</p>
+    <a href="https://github.com/ynb0303">GitHub</a>
+  </footer>
+  <button id="scroll-top" type="button" aria-label="페이지 맨 위로 이동" hidden>↑</button>
+</body>
+</html>
