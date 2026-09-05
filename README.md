@@ -3,8 +3,8 @@
 HTML, CSS, JavaScript만으로 만든 반응형 학습 포트폴리오입니다. 사용자의 행동이 상태를 바꾸고, 바뀐 상태가 화면에 반영되는 흐름을 연습합니다.
 
 ## 진행 상황
-- HTML/CSS와 JavaScript 기능 구현 완료, 로컬 Chrome 브라우저 검증 통과
-- GitHub Pages 배포 전 (배포 URL은 아직 없습니다)
+- HTML/CSS와 JavaScript 기능 구현 완료, 로컬 및 배포 사이트 Chrome 브라우저 검증 통과
+- 배포 URL: https://ynb0303.github.io/B1-1/
 - 저장소 URL: https://github.com/ynb0303/B1-1
 - 사용 기술: HTML5, CSS3, 순수 JavaScript, GitHub REST API
 - 외부 런타임 라이브러리 및 프레임워크 없음
@@ -61,7 +61,7 @@ fetch와 async/await로 공개 저장소를 가져옵니다. 다음 페이지가
 | 폼 입력/제출 | state.form.values, errors, success | renderForm |
 
 ## 배포 및 스크린샷
-아래 이미지는 **로컬 서버에서 실제 GitHub API를 연결해 촬영한 화면**입니다. 배포 사이트에서 촬영한 결과는 아닙니다.
+아래 이미지는 **GitHub Pages 배포 사이트에서 실제 GitHub API를 연결해 촬영한 화면**입니다.
 
 ### 데스크톱 (1440px)
 ![데스크톱 포트폴리오 전체 화면](images/screenshots/desktop.png)
@@ -73,7 +73,7 @@ fetch와 async/await로 공개 저장소를 가져옵니다. 다음 페이지가
 ![다크 모드 포트폴리오 전체 화면](images/screenshots/dark.png)
 
 ## 검증 결과
-2026-09-05, 설치된 Google Chrome의 헤드리스 모드에서 Playwright로 검증했습니다. 테스트 도구는 개발용이며 웹사이트에 외부 라이브러리를 추가하지 않습니다.
+2026-09-05, 로컬 서버와 실제 배포 주소 `https://ynb0303.github.io/B1-1/`를 설치된 Google Chrome의 헤드리스 모드에서 Playwright로 검증했습니다. 테스트 도구는 개발용이며 웹사이트에 외부 라이브러리를 추가하지 않습니다.
 
 - 320/390/768/1024/1440px에서 가로 넘침 없음
 - 모바일 메뉴 열기·닫기, Escape, 메뉴 링크 이동 및 초점 이동
@@ -102,9 +102,11 @@ python3 -m http.server 8765 --bind 127.0.0.1
 /tmp/portfolio-browser-env/bin/python tests/browser_check.py
 ```
 
+배포 사이트를 재검증하려면 위 테스트 명령 앞에 `PORTFOLIO_TEST_URL=https://ynb0303.github.io/B1-1/`을 붙입니다.
+
 자동 검증은 모든 브라우저·보조 기술을 보장하지 않습니다. 15초 시간 초과, 여러 페이지의 저장소, 시스템 테마 실시간 변경은 코드로 구현했지만 별도 자동 시나리오로 검증하지 않았습니다.
 
-## GitHub Pages 배포하기 — 아직 남은 작업
+## GitHub Pages 배포 방법
 GitHub 계정 인증을 완료하고 기존 `ynb0303/B1-1` 저장소의 main 브랜치에 연결했습니다. 아래는 직접 배포 과정을 설명하거나 다시 설정할 때 참고할 절차입니다.
 
 1. VS Code 왼쪽 **소스 제어**를 엽니다.
@@ -123,7 +125,7 @@ GitHub 계정 인증을 완료하고 기존 `ynb0303/B1-1` 저장소의 main 브
 8. 배포된 화면에서 메뉴·테마 유지·스크롤·API·폼·모바일 레이아웃을 다시 확인합니다.
 9. README 상단에 실제 저장소 URL과 배포 URL을 기록하고 변경 사항을 커밋·동기화합니다.
 
-이 저장소의 Pages 예상 주소는 `https://ynb0303.github.io/B1-1/`입니다. **현재 배포가 확인된 주소가 아닙니다.** 파일 경로는 상대 경로로 작성해 저장소 하위 경로에서도 CSS·JS·이미지를 읽도록 했습니다. `.nojekyll`은 정적 파일을 그대로 제공하기 위한 설정입니다.
+이 저장소의 Pages 주소는 `https://ynb0303.github.io/B1-1/`입니다. GitHub Pages에서 main 브랜치의 루트 폴더를 배포하도록 설정했습니다. 파일 경로는 상대 경로로 작성해 저장소 하위 경로에서도 CSS·JS·이미지를 읽도록 했습니다. `.nojekyll`은 정적 파일을 그대로 제공하기 위한 설정입니다.
 
 ## 최종 제출물
 - 실제 GitHub 저장소 URL
@@ -135,4 +137,3 @@ GitHub 계정 인증을 완료하고 기존 `ynb0303/B1-1` 저장소의 main 브
 - [GitHub Pages 사이트 만들기](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)
 - [GitHub Pages 배포 소스 설정](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
 - [사용자의 공개 저장소 목록 API](https://docs.github.com/en/rest/repos/repos#list-repositories-for-a-user)
-

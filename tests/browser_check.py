@@ -1,10 +1,11 @@
 """개발용 브라우저 검증. 웹사이트 실행에는 Python/Playwright가 필요하지 않습니다."""
 import json
+import os
 from pathlib import Path
 from playwright.sync_api import sync_playwright, expect
 
 ROOT = Path(__file__).resolve().parents[1]
-URL = 'http://127.0.0.1:8765'
+URL = os.environ.get('PORTFOLIO_TEST_URL', 'http://127.0.0.1:8765')
 API = 'https://api.github.com/users/ynb0303/repos*'
 FIXTURE = [
     {'name': 'sample-html', 'description': '<img src=x onerror=alert(1)>', 'language': 'HTML', 'stargazers_count': 1},
