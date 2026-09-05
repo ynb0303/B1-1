@@ -143,11 +143,18 @@ const { status, items, error, language } = state.projects;
 
 이는 `state.projects.status` 등을 반복해서 쓰는 대신, 필요한 속성을 각각 변수로 꺼내는 문법입니다. 상태와 자동으로 동기화되는 새 저장 공간을 만드는 것은 아닙니다. 렌더링 함수를 호출할 때마다 그 시점의 값을 다시 꺼냅니다.
 
-프로젝트의 `({ language: repoLanguage })`는 `language` 속성을 꺼내되 변수 이름을 `repoLanguage`로 정한다는 뜻입니다. 필터 상태의 `language`와 구분하기 위해 사용했습니다.
+`createProjectCard`의 구조분해 할당에서 `language: repoLanguage`는 `language` 속성을 꺼내되 변수 이름을 `repoLanguage`로 정한다는 뜻입니다. 필터 상태의 `language`와 구분하기 위해 사용했습니다.
 
 ### map: 모든 항목을 다른 형태로 바꾸기
 
-실제 프로젝트는 `visible.map(...)`으로 저장소마다 카드 HTML을 만듭니다. 아래는 핵심 원리만 줄인 예시입니다.
+실제 프로젝트에서는 카드 하나를 만드는 `createProjectCard` 함수를 분리했습니다. `renderProjects`에서 아래와 같이 호출합니다.
+
+```js
+const projectCards = visible.map(createProjectCard);
+projectGrid.innerHTML = projectCards.join('');
+```
+
+`map(createProjectCard)`는 저장소를 하나씩 `createProjectCard(repo)`에 전달하고, 반환된 HTML 문자열을 모은다는 뜻입니다. 아래는 카드 생성 원리를 한곳에 모아 줄인 설명용 예시입니다.
 
 ```js
 projectGrid.innerHTML = visible.map(({ name }) => `
@@ -169,12 +176,17 @@ projectGrid.innerHTML = visible.map(({ name }) => `
 실제 언어 필터 코드입니다.
 
 ```js
-const visible = items.filter((repo) =>
-  language === 'all' || (repo.language || '미지정') === language
-);
+const visible = items.filter((repo) => {
+  if (language === 'all') {
+    return true;
+  }
+
+  const repoLanguage = repo.language || '미지정';
+  return repoLanguage === language;
+});
 ```
 
-`filter`는 함수 결과가 참인 항목만 새 배열에 담습니다. 여기서는 전체 선택이면 모두 남기고, 특정 언어를 선택했다면 해당 언어의 저장소만 남깁니다. `||`는 앞 조건이 참이거나 뒤 조건이 참이면 전체 조건이 참이 되게 합니다. `(repo.language || '미지정')`은 언어 값이 없으면 비교에 쓸 값을 `'미지정'`으로 정합니다.
+`filter`는 함수 결과가 참인 항목만 새 배열에 담습니다. 여기서는 전체 선택이면 모두 남기고, 특정 언어를 선택했다면 해당 언어의 저장소만 남깁니다. 먼저 `if`에서 전체 선택인지 확인합니다. 나머지 경우에는 저장소 언어와 선택 언어가 같은지 비교합니다. `repo.language || '미지정'`은 언어 값이 없으면 비교에 쓸 값을 `'미지정'`으로 정합니다.
 
 | 메서드 | 반환하는 결과 | 프로젝트에서의 역할 |
 | --- | --- | --- |

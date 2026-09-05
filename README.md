@@ -24,6 +24,16 @@ HTML, CSS, JavaScript만으로 만든 반응형 학습 포트폴리오입니다.
 - [EXPLANATION-GUIDE.md](EXPLANATION-GUIDE.md): 코드 학습과 발표 가이드
 - [EXPLANATION-GUIDE2.md](EXPLANATION-GUIDE2.md): 체크리스트 8번의 학습 목표 6개 집중 설명
 
+## 초심자를 위한 코드 읽기
+
+코드에 구역별 주석을 넣고 긴 한 줄 표현을 여러 단계로 나눴습니다. [전체 설명 가이드의 읽는 순서](EXPLANATION-GUIDE.md#코드를-읽는-순서--초심자용)와 함께 확인하세요.
+
+1. `index.html`: 섹션 주석을 따라 화면의 구조 확인
+2. `css/style.css`: 속성을 한 줄씩 읽으며 배치와 색상 확인
+3. `js/main.js`: 1번 설정·상태 → 2번 요소 선택 → 3~8번 기능 → 9번 시작
+
+메뉴의 클릭 이벤트 → `state.menuOpen` 변경 → `renderMenu()` 호출을 먼저 설명해 보세요. 그다음 테마, 폼, API로 확장하면 됩니다. 프로젝트 카드 생성은 `createProjectCard`, 필터 버튼 표시는 `renderProjectFilters`로 분리했고, 오류 처리는 `if`문으로 펼쳤습니다. 스크롤 위치와 요청 시간 제한은 파일 상단의 이름 있는 상수로 관리합니다.
+
 ## 직접 설명할 학습 목표
 
 [EXPLANATION-GUIDE2.md](EXPLANATION-GUIDE2.md)에 아래 6개 항목을 **쉬운 설명 → 실제 코드 해설 → 답변 예시 → 확인 질문** 순서로 정리했습니다.
@@ -89,6 +99,9 @@ fetch와 async/await로 공개 저장소를 가져옵니다. 다음 페이지가
 ![다크 모드 포트폴리오 전체 화면](images/screenshots/dark.png)
 
 ## 검증 결과
+
+가독성 정리 후 로컬 Chrome에서 기존 브라우저 검증을 다시 실행해 통과했습니다. HTML 태그·속성과 CSS 속성·선택자도 정리 전과 동일한지 확인했습니다.
+
 2026-09-05, 로컬 서버와 실제 배포 주소 `https://ynb0303.github.io/B1-1/`를 설치된 Google Chrome의 헤드리스 모드에서 Playwright로 검증했습니다. 테스트 도구는 개발용이며 웹사이트에 외부 라이브러리를 추가하지 않습니다.
 
 - 320/390/768/1024/1440px에서 가로 넘침 없음
